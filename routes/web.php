@@ -8,6 +8,7 @@ use App\Http\Controllers\aboutController;
 use App\Http\Controllers\buyController;
 use App\Http\Controllers\newsController;
 use App\Http\Controllers\contactController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,12 @@ Route::get('/aboutpage', [App\Http\Controllers\aboutController::class, 'index'])
 Route::get('/buy', [App\Http\Controllers\buyController::class, 'index'])->name('buy');
 Route::get('/news', [App\Http\Controllers\newsController::class, 'index'])->name('news');
 Route::get('/contact', [App\Http\Controllers\contactController::class, 'index'])->name('contact');
+
+//logout
+Route::get('/logout', [App\Http\Controllers\logoutController::class, 'index'])->name('logout');
+
+//CRUD
+Route::resource('/posts', \App\Http\Controllers\PostController::class);
+
+//CRUD PROFIL
+Route::get('/profil', [\App\Http\Controllers\profilController::class, 'index'])->name('profil');

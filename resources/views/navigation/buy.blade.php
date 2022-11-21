@@ -12,6 +12,8 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
+  <link rel="icon" href="{{ asset('images/icon.png') }}">
+
   <title>Rumah Sehat</title>
 
   <!-- slider stylesheet -->
@@ -78,11 +80,28 @@
                 <button class="nav_search-btn" type="submit"></button>
               </form> --}}
               <div class="login_btn ml-0 ml-lg-4">
-                <a href="{{ route('login') }}">
+                {{-- <a href="{{ route('login') }}">
                   <span>
                     LOGIN
                   </span>
-                </a>
+                </a> --}}
+                @can('isAdmin')
+                  <div>
+                      <button type="button" onclick="location.href='http://127.0.0.1:8000/login';" class="btn btn-success btn-lg"> Admin </button>
+                  </div>
+                @elsecan('isManager')
+                  <div >
+                      <button type="button" onclick="location.href='http://127.0.0.1:8000/login';" class="btn btn-primary btn-lg"> Manager </button>
+                  </div>
+                @elsecan('isUser')
+                  <div >
+                      <button type="button" onclick="location.href='http://127.0.0.1:8000/login';" class="btn btn-info btn-lg"> User </button>
+                  </div>
+                @else
+                  <div>
+                    <button type="button" onclick="location.href='http://127.0.0.1:8000/login';" class="btn btn-info btn-lg"> LOGIN </button>
+                  </div>
+                @endcan
               </div>
             </div>
           </div>

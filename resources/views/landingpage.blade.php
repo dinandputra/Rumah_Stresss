@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -12,6 +11,9 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
+  <link rel="icon" href="{{ asset('images/icon.png') }}">
+  
+  
   <title>Rumah Sehat</title>
 
   <!-- slider stylesheet -->
@@ -74,68 +76,23 @@
                 </li>
               </ul>
               <div class="login_btn ml-0 ml-lg-4">
-                {{-- <a href="login">Login</a> --}}
-                    
-                    <style>
-
-                      .dropbtn {
-                          color: white;
-                          border: none;
-                      }
-                      
-                      .dropdown {
-                          position: relative;
-                          display: inline-block;
-                      }
-                      
-                      .dropdown-content {
-                          display: none;
-                          position: absolute;
-                          background-color: #ffffff;
-                          min-width: 78px;
-                          border-radius: 5px;
-                          z-index: 10;
-                      }
-                      
-                      .dropdown-content a {
-                          color: rgb(0, 0, 0);
-                          padding: 12px 16px;
-                          text-decoration: none;
-                          display: block;
-                      }
-                      
-                      .dropdown:hover .dropdown-content {display: block;}
-                      
-                      </style>
-                      </head>
-                      
-                      <div class="dropdown">
-
-                        <div class="dropbtn">
-                          @can('isAdmin')
-                        <div>
-                            <button type="button" onclick="location.href='http://127.0.0.1:8000/';" class="btn btn-success btn-lg"> Admin </button>
-                        </div>
-                        @elsecan('isManager')
-                        <div >
-                            <button type="button" onclick="location.href='http://127.0.0.1:8000/';" class="btn btn-primary btn-lg"> Manager </button>
-                        </div>
-                        @else
-                        <div >
-                            <button type="button" onclick="location.href='http://127.0.0.1:8000/';" class="btn btn-info btn-lg"> User </button>
-                        </div>
-                        @endcan
-                        </div>
-                        
-                      <div class="dropdown-content">
-                      @if ('isUser')
-                        <a href="http://127.0.0.1:8000/login">Login</a>
-                      @else
-                        <a href="http://127.0.0.1:8000/login">Logout</a>
-                      @endif
-                      </div>
-                      </div>
-
+                @can('isAdmin')
+                  <div>
+                      <button type="button" onclick="location.href='http://127.0.0.1:8000/login';" class="btn btn-success btn-lg"> Admin </button>
+                  </div>
+                @elsecan('isManager')
+                  <div >
+                      <button type="button" onclick="location.href='http://127.0.0.1:8000/login';" class="btn btn-primary btn-lg"> Manager </button>
+                  </div>
+                @elsecan('isUser')
+                  <div >
+                      <button type="button" onclick="location.href='http://127.0.0.1:8000/login';" class="btn btn-info btn-lg"> User </button>
+                  </div>
+                @else
+                  <div>
+                    <button type="button" onclick="location.href='http://127.0.0.1:8000/login';" class="btn btn-info btn-lg"> LOGIN </button>
+                  </div>
+                @endcan
               </div>
             </div>
           </div>
