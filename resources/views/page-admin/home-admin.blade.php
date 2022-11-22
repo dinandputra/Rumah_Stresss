@@ -48,12 +48,24 @@
       <link rel="icon" href="{{ asset('images/Manager.png') }}">
     
   @else
-    
+      
       <link rel="icon" href="{{ asset('images/user.png') }}">
     
   @endcan   
 
+  @can('isAdmin')
+    
   <title>Admin Page</title>
+    
+  @elsecan('isManager')
+    
+  <title>Manager Page</title>
+    
+  @else
+      
+  <title>User Page</title>
+    
+  @endcan   
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -281,25 +293,73 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manager</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="http://127.0.0.1:8000/home" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Admin</p>
-                </a>
-              </li>
+
+            @can('isAdmin')
+    
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/home" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>User</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./index2.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Manager</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/home" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Admin</p>
+              </a>
+            </li>
+            @elsecan('isManager')
+
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/home" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>User</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./index2.html" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Manager</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/home" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Admin</p>
+              </a>
+            </li>
+
+            @else
+
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/home" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>User</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./index2.html" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Manager</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/home" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Admin</p>
+              </a>
+            </li>
+
+            @endcan   
+              
             </ul>
           </li> 
           <li class="nav-item">
@@ -921,6 +981,7 @@
               @can('isAdmin')
                   <div>
                     <h3>Dashboard <button type="button" onclick="location.href='http://127.0.0.1:8000/posts';" class="btn btn-success btn-lg"> Admin </button>
+                    <button class="btn btn-primary btn-lg " type="button" onclick="location.href='http://127.0.0.1:8000/posts'"> CRUD </button>
                   </div>
                 @elsecan('isManager')
                   <div >
@@ -945,6 +1006,9 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+    @can('isAdmin')
+    
+    @elsecan('isManager')
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -1193,6 +1257,14 @@
       </div>
       <!-- /.container-fluid -->
     </div>
+    @elsecan('isUser')
+    <div class="card">
+        <div class="card-body">
+          <button class="btn btn-outline-info btn-lg"> You have User Access </button> Sorry! You don't have any access.
+        </div>
+      </div>
+    </div>
+    @endcan
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

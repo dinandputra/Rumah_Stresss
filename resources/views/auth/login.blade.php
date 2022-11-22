@@ -116,41 +116,16 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('{{asset('images/bg-login.jpg')}}');">
 			<div class="wrap-login100 p-t-30 p-b-50">
-                @if (Route::has('login'))  
+                {{-- @if (Route::has('login'))  
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('login') }}"><h5>{{ __('Login') }}</h5></a>
                     </li>
-                @endif
+                @endif --}}
 
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('register') }}"><h5>{{ __('Register') }}</h5></a>
-                    </li>
-                @endif
+                
 				<span class="login100-form-title p-b-41">
 					Account Login
 				</span>
-				{{-- <form class="login100-form validate-form p-b-33 p-t-5">
-
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="User name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
-					</div>
-
-					<div class="container-login100-form-btn m-t-32">
-						<button class="login100-form-btn">
-							Login
-						</button>
-					</div>
-				</form> --}}
-
-
-
                 <div class="card-body background-white">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -197,19 +172,26 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-1 offset-md-4">
+                            <div class="col-md-0 offset-md-4">
                                 <button type="submit" class="btn btn-primary" >
                                     {{ __('Login') }}
                                 </button>
                                 &emsp;
                                 <button type="button" class="btn btn-danger" onclick="location.href='http://127.0.0.1:8000';">
-                                    Batal
+                                    <ul class="right">
+                                        {{__('Batal')}}
+                                    </ul>
                                 </button>
+                            </div>
+                            <div>
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    <br>
                                     {{ __('Forgot Your Password?') }}
                                 </a>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <a class="btn btn-link" href="{{ route('register') }}">{{ __('Belum punya akun?') }}</a>
                             @endif
                         </div>
                     </div>
