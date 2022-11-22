@@ -75,6 +75,7 @@
                   <a class="nav-link" href="{{ route('contact') }}">Contact us</a>
                 </li>
               </ul>
+
               <div class="login_btn ml-0 ml-lg-4">
                 @can('isAdmin')
                   <div>

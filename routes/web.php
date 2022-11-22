@@ -47,5 +47,5 @@ Route::get('/logout', [App\Http\Controllers\logoutController::class, 'index'])->
 //CRUD
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
 
-//CRUD PROFIL
-Route::get('/profil', [\App\Http\Controllers\profilController::class, 'index'])->name('profil');
+
+    

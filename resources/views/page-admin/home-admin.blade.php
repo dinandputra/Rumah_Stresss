@@ -234,10 +234,10 @@
 
         @can('isAdmin')
           <div class="image">
-            <img src="{{asset('adminLTE/dist/img/dinand.jpg')}}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{asset('adminLTE/dist/img/dinand.jpg')}}" class="img-circle elevation-2" alt="User Image"> 
           </div>
           <div class="info">
-            <a href="{{route('profil')}}" class="d-block">Ferdinand Putra</a>
+            <a href="http://127.0.0.1:8000/home" class="d-block">Ferdinand Putra</a>
           </div>
         @elsecan('isManager')
           <div class="image">
