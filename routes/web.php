@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\pasienController::class, 'index'])->name('home');
 Route::get('/landingpage', [App\Http\Controllers\landingpageController::class, 'index'])->name('landingpage');
 
 // Route Navigasi Bar

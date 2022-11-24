@@ -1007,7 +1007,54 @@
 
     <!-- Main content -->
     @can('isAdmin')
-      
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card border-0 shadow rounded">
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr> 
+                      <th scope="col">Nama</th>
+                      <th scope="col">Alamat</th>
+                      <th scope="col">Tgl_Lahir</th>
+                      <th scope="col">No.Telp</th>
+                      <th scope="col">Keterangan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @forelse ($pasien as $item)
+                        <tr>
+                          <td class="text-center">{{$item->nama}}</td>  
+                          <td class="text-center">{{$item->alamat}}</td>  
+                          <td class="text-center">{{$item->tgllhr}}</td>  
+                          <td class="text-center">{{$item->telp}}</td>  
+                        </tr>
+                    @empty
+                      <div class="alert alert-danger">
+                        Data Post belum Tersedia.
+                      </div>
+                    @endforelse
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        //message with toastr
+        @if(session()->has('success'))
+        
+            toastr.success('{{ session('success') }}', 'BERHASIL!'); 
+
+        @elseif(session()->has('error'))
+
+            toastr.error('{{ session('error') }}', 'GAGAL!'); 
+            
+        @endif
+    </script>
     @elsecan('isManager')
     <div class="content">
       <div class="container-fluid">
@@ -1260,7 +1307,7 @@
     @elsecan('isUser')
     <div class="card">
         <div class="card-body">
-          <button class="btn btn-outline-info btn-lg"> You have User Access </button> Sorry! You don't have any access.
+          <button class="btn btn-outline-info btn-lg"> You Are an User </button> You don't have any access.
         </div>
       </div>
     </div>
@@ -1301,6 +1348,12 @@
 <script src="{{asset('adminLTE/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('adminLTE/dist/js/pages/dashboard3.js')}}"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 </body>
 </html>
 
