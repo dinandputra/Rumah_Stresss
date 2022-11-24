@@ -1007,7 +1007,7 @@
 
     <!-- Main content -->
     @can('isAdmin')
-    
+      
     @elsecan('isManager')
     <div class="content">
       <div class="container-fluid">
