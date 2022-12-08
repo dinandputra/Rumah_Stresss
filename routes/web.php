@@ -46,6 +46,3 @@ Route::get('/logout', [App\Http\Controllers\logoutController::class, 'index'])->
 
 //CRUD
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
-
-
-    

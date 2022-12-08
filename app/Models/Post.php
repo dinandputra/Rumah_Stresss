@@ -16,7 +16,7 @@ class post extends Model
     ];
     
     public function index(){
-        $posts = Post::latest()->paginate(5);
+        $post = Post::latest()->paginate(5);
         
         return view('posts.index', compact('posts'));
     }

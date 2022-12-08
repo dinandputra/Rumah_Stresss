@@ -18,10 +18,10 @@ return new class extends Migration
     {
         Schema::create('pasien', function (Blueprint $table) {
             $table->id();
-            $table->string('nama',50);
-            $table->string('alamat',100);
+            $table->string('nama');
+            $table->text('alamat');
             $table->date('tgllhr');
-            $table->string('telp',12);
+            $table->string('telp');
             $table->timestamps();
         });
     }
