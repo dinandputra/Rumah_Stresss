@@ -153,7 +153,11 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <button class="btn btn-primary btn-lg " type="button" onclick="location.href='http://127.0.0.1:8000/posts'"> Tambah Data </button>
+              <button class="btn btn-outline-primary btn-lg " type="button" onclick="location.href='http://127.0.0.1:8000/posts'"> Tambah Data </button>
+               
+              <button class="btn btn-outline-info btn-lg " type="button" onclick="location.href='http://127.0.0.1:8000/dokter/create'"> Tambah Data Dokter</button>
+              <button class="btn btn-outline-primary btn-lg " type="button" onclick="location.href='http://127.0.0.1:8000/karyawan/create'"> Tambah Data Karyawan</button>
+              <button class="btn btn-outline-info btn-lg" type="button" onclick="location.href='http://127.0.0.1:8000/obat/create'"> Tambah Data Obat</button>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
