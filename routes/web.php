@@ -8,6 +8,9 @@ use App\Http\Controllers\aboutController;
 use App\Http\Controllers\buyController;
 use App\Http\Controllers\newsController;
 use App\Http\Controllers\contactController;
+use App\Http\Controllers\DokterController;
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\ObatController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -46,3 +49,34 @@ Route::get('/logout', [App\Http\Controllers\logoutController::class, 'index'])->
 
 //CRUD
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
+
+//Dokter
+Route::get('/dokter', [App\Http\Controllers\DokterController::class, 'index'])->name('index');
+Route::get('/dokter/create', [App\Http\Controllers\DokterController::class, 'create'])->name('create.dokter');
+Route::post('/dokter/create/save', [App\Http\Controllers\DokterController::class, 'store'])->name('store.dokter');
+
+//Karyawan
+Route::get('/karyawan', [App\Http\Controllers\KaryawanController::class, 'index'])->name('index');
+Route::get('/karyawan/create', [App\Http\Controllers\KaryawanController::class, 'create'])->name('create.karyawan');
+Route::post('/karyawan/create/save', [App\Http\Controllers\KaryawanController::class, 'store'])->name('store.karyawan');
+
+//Obat
+Route::get('/obat', [App\Http\Controllers\ObatController::class, 'index'])->name('index');
+Route::get('/obat/create', [App\Http\Controllers\ObatController::class, 'create'])->name('create.obat');
+Route::post('/obat/create/save', [App\Http\Controllers\ObatController::class, 'store'])->name('store.obat');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
